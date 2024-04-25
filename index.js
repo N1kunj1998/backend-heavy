@@ -4,6 +4,11 @@ import http from "http";
 import myName from "./feature.js"
 import { name2, name1 } from "./feature.js";
 import * as myObj from "./feature.js"; // now everything from feature.js file will be accessed using this object.
+import fs from "fs";
+
+const home = fs.readFileSync("./index.html", () => {
+    console.log("file read");
+})
 
 console.log(myName);
 console.log(myObj.name3);
@@ -13,7 +18,7 @@ const server = http.createServer((req, res) => {
     if(req.url === "/about") {
         res.end(`<h1>Love is ${myObj.generateLovePercent()}</h1>`);
     } else if(req.url === "/") {
-        res.end("<h1>Home Page</h1>");
+        res.end(home);
     } else if(req.url === "/contact") {
         res.end("<h1>Contact Page</h1>");
     } else {
