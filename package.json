@@ -1,0 +1,19 @@
+{
+  "name": "backend-heavy-tutorial",
+  "version": "1.0.0",
+  "description": "this project will contain most of the backend operation",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/N1kunj1998/backend-heavy.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/N1kunj1998/backend-heavy/issues"
+  },
+  "homepage": "https://github.com/N1kunj1998/backend-heavy#readme"
+}
