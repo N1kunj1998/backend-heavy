@@ -1,4 +1,7 @@
 const http = require("http");
+const name = require("./feature");
+
+console.log(name);
 
 const server = http.createServer((req, res) => {
     if(req.url === "/about") {
