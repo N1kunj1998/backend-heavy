@@ -3,6 +3,7 @@
   "version": "1.0.0",
   "description": "this project will contain most of the backend operation",
   "main": "index.js",
+  "type": "module",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
