@@ -1,35 +1,28 @@
-// const http = require("http");
-import http from "http";
-// const name = require("./feature");
-import myName from "./feature.js"
-import { name2, name1 } from "./feature.js";
-import * as myObj from "./feature.js"; // now everything from feature.js file will be accessed using this object.
-import fs from "fs";
+import express from "express";
 import path from "path";
 
-// console.log(path);
+// As per industry standards instead of name of the server server we keep it as app
+const app = express();
 
-const home = fs.readFileSync("./index.html", () => {
-    console.log("file read");
+app.get("/", (req, res) => {
+    // res.statusCode(404);
+    
+    // res.send("hi");
+    
+    // res.json({
+    //     success: true,
+    //     products: []
+    // })
+    
+    // res.status(400).send("meri marzi");
+
+    // Sending html file as response
+    // console.log(path.resolve())
+    const pathLocation = path.resolve();
+    // res.sendFile(path.join(pathLocation, "./index.html"));
+    res.render()
 })
 
-console.log(myName);
-console.log(myObj.name3);
-console.log(myObj.generateLovePercent())
-
-const server = http.createServer((req, res) => {
-    console.log(req.method);
-    if(req.url === "/about") {
-        res.end(`<h1>Love is ${myObj.generateLovePercent()}</h1>`);
-    } else if(req.url === "/") {
-        res.end(home);
-    } else if(req.url === "/contact") {
-        res.end("<h1>Contact Page</h1>");
-    } else {
-        res.end("<h1>Page not found</h1>");
-    }
-});
-
-server.listen(5001, () => {
-    console.log("server is working");
+app.listen(5001, () => {
+    console.log(`server listening at port 5001`);
 })
