@@ -1,5 +1,20 @@
 import express from "express";
 import path from "path";
+import mongoose from "mongoose";
+
+mongoose.connect("mongodb://localhost:27017", {
+    dbName: "backend",
+})
+.then(() => {console.log("Database Connected")})
+.catch((e) => console.error(e));
+
+// Defining Schema
+const messageSchema = new mongoose.Schema({
+    name: String,
+    email: String,
+});
+
+const Message = mongoose.model("Message", messageSchema);
 
 const app = express();
 
@@ -27,9 +42,9 @@ app.get("/users", (req, res) => {
     res.json({users});
 })
 
-app.post("/contact", (req, res) => {
-    console.log(req.body);
-    users.push({username: req.body.name, email: req.body.email});
+app.post("/contact", async (req, res) => {
+    const {name, email} = req.body;
+    await Message.create({name, email});
     res.redirect("/success");
 })
 

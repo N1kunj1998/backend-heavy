@@ -20,6 +20,7 @@
   "homepage": "https://github.com/N1kunj1998/backend-heavy#readme",
   "dependencies": {
     "ejs": "^3.1.10",
-    "express": "^4.19.2"
+    "express": "^4.19.2",
+    "mongoose": "^8.3.2"
   }
 }
